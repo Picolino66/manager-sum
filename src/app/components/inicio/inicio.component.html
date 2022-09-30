@@ -1,0 +1,65 @@
+<div class="grid-container">
+  <div fxLayout="row" fxLayout.lt-md="column" fxFlexFill>
+    <div
+      fxFlex="33" fxFlex.lt-md="90" class="w100 ml10 m15"
+      *ngFor="let par of this.parceriasGet; let i = index"
+    >
+      <mat-card *ngIf="!par.editar">
+        <mat-card-header class="right mt-15">
+          <button mat-mini-fab color="basic" (click)="editarParceria(par)"><mat-icon>edit</mat-icon></button>
+          <button mat-mini-fab class="ml10" color="basic" (click)="deleteParceria(par)"><mat-icon>delete</mat-icon></button>
+        </mat-card-header>
+        <mat-card-content>
+          <p><b>Nome:</b> {{par.nome}}</p>
+          <p><b>Responsável: </b>{{par.responsavel}}</p>
+          <p><b>Quantidade Story: </b>{{par.story}}</p>
+          <p><b>Quantidade Feed: </b>{{par.feed}}</p>
+          <p><b>Valor da Parceria: </b>{{par.preco}}</p>
+          <p *ngIf="par.data"><b>Última atualização: </b>{{par.data}}</p>
+          <mat-card-actions>
+            <button mat-raised-button color="accent" (click)="updateParceria(par, 1)">Feed Publicado</button>
+            <button mat-raised-button color="warn" (click)="updateParceria(par, 2)">Story Publicado</button>
+          </mat-card-actions>
+
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card *ngIf="par.editar">
+        <mat-card-content>
+          <form class="form">
+            <mat-form-field class="w100" appearance="fill">
+              <mat-label>Nome:</mat-label>
+              <input matInput placeholder="Festa Arapuca" [(ngModel)]="par.nome" name="nome">
+            </mat-form-field>
+
+            <mat-form-field class="w100" appearance="fill">
+              <mat-label>Responsável:</mat-label>
+              <input matInput placeholder="República Arapuca" [(ngModel)]="par.responsavel" name="responsavel">
+            </mat-form-field>
+
+            <mat-form-field class="w100" appearance="fill">
+              <mat-label>Quantidade Story:</mat-label>
+              <input matInput placeholder="5" type="number" [(ngModel)]="par.story" name="story">
+            </mat-form-field>
+
+            <mat-form-field class="w100" appearance="fill">
+              <mat-label>Quantidade Feed:</mat-label>
+              <input matInput placeholder="3" type="number" [(ngModel)]="par.feed" name="feed">
+            </mat-form-field>
+
+            <mat-form-field class="w100" appearance="fill">
+              <mat-label>Preço total:</mat-label>
+              <input matInput placeholder="2 ingressos ou 100 reais" [(ngModel)]="par.preco" name="preco">
+            </mat-form-field>
+
+            <mat-card-actions>
+              <button mat-raised-button color="primary" (click)="salvarParceria(par)">Salvar</button>
+              <button mat-raised-button color="basic" (click)="editarParceria(par)">Fechar</button>
+            </mat-card-actions>
+          </form>
+        </mat-card-content>
+      </mat-card>
+
+    </div>
+  </div>
+</div>

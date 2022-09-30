@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "super-ufla-memes"
+  },
+  "targets": {
+    "super-ufla-memes": {
+      "hosting": {
+        "sum": [
+          "super-ufla-memes"
+        ]
+      }
+    }
+  }
+}

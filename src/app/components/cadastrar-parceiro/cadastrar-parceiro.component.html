@@ -1,0 +1,36 @@
+<div class="grid-container">
+  <mat-card>
+    <mat-card-content>
+      <form class="form">
+        <mat-form-field class="w100" appearance="fill">
+          <mat-label>Nome:</mat-label>
+          <input matInput placeholder="Festa Arapuca" [(ngModel)]="parceria.nome" name="nome">
+        </mat-form-field>
+
+        <mat-form-field class="w100" appearance="fill">
+          <mat-label>Responsável:</mat-label>
+          <input matInput placeholder="República Arapuca" [(ngModel)]="parceria.responsavel" name="responsavel">
+        </mat-form-field>
+
+        <mat-form-field class="w100" appearance="fill">
+          <mat-label>Quantidade Story:</mat-label>
+          <input matInput placeholder="5" type="number" [(ngModel)]="parceria.story" name="story">
+        </mat-form-field>
+
+        <mat-form-field class="w100" appearance="fill">
+          <mat-label>Quantidade Feed:</mat-label>
+          <input matInput placeholder="3" type="number" [(ngModel)]="parceria.feed" name="feed">
+        </mat-form-field>
+
+        <mat-form-field class="w100" appearance="fill">
+          <mat-label>Preço total:</mat-label>
+          <input matInput placeholder="2 ingressos ou 100 reais" [(ngModel)]="parceria.preco" name="preco">
+        </mat-form-field>
+
+        <mat-card-actions>
+          <button mat-raised-button color="primary" (click)="salvar()">Salvar</button>
+        </mat-card-actions>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
